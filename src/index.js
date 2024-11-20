@@ -57,7 +57,7 @@ function addTask(task) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
     deleteButton.addEventListener("click", (e) => {
-        currentProject.removeTask(task);
+        app.removeTask(currentProject, task);
         div.remove();
 
         if (currentProject.tasks.length == 0) {
@@ -112,6 +112,7 @@ function setProject(project) {
     } else if (currentProject) {
         projectButtons.get(currentProject).classList.remove("current-project");
     }
+    taskContainer.style.display = "block";
 
     projectContainer.querySelector("h1").style.display = "none";
 
@@ -185,7 +186,7 @@ taskForm.addEventListener("submit", (e) => {
 
     const formData = new FormData(taskForm);
     const task = new Task(formData.get("taskTitle"), formData.get("taskDesc"), formData.get("taskDate"), formData.get("taskPriority"));
-    currentProject.addTask(task);
+    app.addTask(currentProject, task);
     addTask(task);
 
     resetForm(taskForm);

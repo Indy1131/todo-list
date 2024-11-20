@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <nav>
+                <h1>To-do List</h1>
+            </nav>
+        </header>
+        <div class="sidebar">
+            <button id="projectButton">add project</button>
+            <div id="projectContainer">
+                <h1>You have no projects.</h1>
+            </div>
+        </div>
+        <div id="taskContainer">
+            <h1 id="projectLabel">Current</h1>
+            <div>
+                <form novalidate>
+                    <div class="field-group">
+                        <label for="taskTitle">Task name</label>
+                        <input id="taskTitle" name="taskTitle" placeholder="Name" maxlength="40" minlength="4" required>
+                        <div class="error"></div>
+                    </div>
+                    <div class="field-group">
+                        <label for="taskDesc">Task Desc</label>
+                        <input id="taskDesc" name="taskDesc" placeholder="Desc" minlength="4" required>
+                        <div class="error"></div>
+                    </div>
+                    <div class="field-group">
+                        <label for="taskDate">Due Date</label>
+                        <input id="taskDate" name="taskDate" type="date" required>
+                        <div class="error"></div>
+                    </div>
+                    <div class="field-group">
+                        <div>
+                            <input id="red" value="red" name="taskPriority" type="radio" required>
+                            <label for="red">Red</label>
+                            <input id="yellow" value="yellow" name="taskPriority" type="radio" required>
+                            <label for="yellow">Yellow</label>
+                            <input id="green" value="green" name="taskPriority" type="radio" required>
+                            <label for="green">Green</label>
+                        </div>
+                        <div class="error"></div>
+                    </div>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+            <h1 id="emptyTasks">You currently have no tasks</h1>
+            <div id="taskContainer">
+            </div>
+        </div>
+        <dialog id="projectDialog" class="modal">
+            <button id="projectClose">Close</button>
+            <form novalidate>
+                <div class="field-group">
+                    <label for="title">Project name</label>
+                    <input id="title" name="title" placeholder="Name" maxlength="20" minlength="4" required>
+                    <div class="error"></div>
+                </div>
+                <button type="submit">Add Project</button>
+            </form>
+        </dialog>
+    </div>
+</body>
+
+</html>
